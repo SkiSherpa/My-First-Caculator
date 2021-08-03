@@ -4,15 +4,29 @@
   <body> 
     <h1>The Number Buttons</h1>
     <!--- number buttons --->
-    <button type="button">1</button>
-    <button type="button">2</button>
-    <button type="button">3</button>
+    <button type="button" onclick="display(event)">1</button>
+    <button type="button" onclick="display(event)">2</button>
+    <button type="button" onclick="display(event)">3</button>
 
     <h2>The Operator Buttons</h2>
     <!--- operator buttons --->
-    <button type="button">+</button>
-    <button type="button">=</button>
-
+    <button type="button" onclick="display(event)">+</button>
+    <button type="button" onclick="display(event)">=</button>
     
+    <h3 id="the-display">The Display</h3>
+
+
+  <script>
+      function display(event){
+        //   alert("button's been clicked");
+        //   console.log(event['target']['innerHTML']);
+        //   console.log(event.target.innerHTML);
+          var displayValue = event.target.innerHTML; // the value that has been clicked on
+          console.log(displayValue);
+          var displayElement = document.getElementById("the-display");
+          console.log(displayElement);
+          displayElement.innerHTML = displayValue;
+      }
+  </script>  
   </body>
 </html>
