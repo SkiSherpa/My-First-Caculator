@@ -27,15 +27,23 @@
 
 
   <script>
+      var inputLine = '';
       function display(event){
         //   alert("button's been clicked");
         //   console.log(event['target']['innerHTML']);
         //   console.log(event.target.innerHTML);
           var displayValue = event.target.innerHTML; // the value that has been clicked on
-          console.log(displayValue);
-          var displayElement = document.getElementById("the-display");
+          console.log(displayValue); // this is logging in browser's console
+          var displayElement = document.getElementById("the-display");// getting the element from the page "the display"
           console.log(displayElement);
-          displayElement.innerHTML = displayValue;
+          // store the event in a new var to hold all the clicks
+          inputLine += displayValue;
+          displayElement.innerHTML = inputLine// changing the element on the web page
+            // innerHTML always reflects whats in the element ("displayElement")
+      }
+      function calculation(str){
+        // IP: a String - math expression
+        // OP: a # - the result of the expression
       }
   </script>  
   </body>
