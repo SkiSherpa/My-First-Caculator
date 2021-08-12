@@ -44,6 +44,11 @@
       function calculation(str){
         // IP: a String - math expression
         // OP: a # - the result of the expression
+          // !!! eval() is apparently a nefarious function and shouldn't be used often. maybe should change in the future.
+        var nums = eval(str);
+        return nums;
+        // use a while loop with the condiction " event !== =" -> event does not equal =, 
+          // if the equals button in clicked it should evaluate the IP string
       }
   </script>  
   </body>
