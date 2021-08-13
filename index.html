@@ -25,6 +25,7 @@
     <button type="button" onclick="display(event)">)</button>
     <!-- The = button should call on the calulation function, and then display's the result -->
     <!-- Do I need the = button to remain as an "event"?-->
+    <!-- Something has happend with the "push", it wont upload to GitHub -->
     <button type="button" onclick="calculation(inputLine)">=</button>
     
     
@@ -52,11 +53,10 @@
           // !!! eval() is apparently a nefarious function and shouldn't be used often. maybe should change in the future.
         var nums = eval(inputLine);
         console.log(inputLine, nums); 
-        return inputLine.innerHTML = nums;
+        var displayElement = document.getElementById("the-display");
+        displayElement.innerHTML = nums;
         // I think inputLine is the correct param, its also the only var this function can access
         // ln 53 seems to be the issue, the cnsl is displaying the correct result
-        // inputLine will be "IPln" in notes
-        // Tried things: return IPln = nums, IPln.innerHTML = nums
       }
   </script>  
   </body>
