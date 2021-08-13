@@ -21,7 +21,12 @@
     <button type="button" onclick="display(event)">-</button>
     <button type="button" onclick="display(event)">*</button>
     <button type="button" onclick="display(event)">/</button>
-    <button type="button" onclick="display(event)">=</button>
+    <button type="button" onclick="display(event)">(</button>
+    <button type="button" onclick="display(event)">)</button>
+    <!-- The = button should call on the calulation function, and then display's the result -->
+    <!-- Do I need the = button to remain as an "event"?-->
+    <button type="button" onclick="calculation(inputLine)">=</button>
+    
     
     <h3 id="the-display">The Display</h3>
 
@@ -41,14 +46,17 @@
           displayElement.innerHTML = inputLine// changing the element on the web page
             // innerHTML always reflects whats in the element ("displayElement")
       }
-      function calculation(str){
+      function calculation(inputLine){
         // IP: a String - math expression
         // OP: a # - the result of the expression
           // !!! eval() is apparently a nefarious function and shouldn't be used often. maybe should change in the future.
-        var nums = eval(str);
-        return nums;
-        // use a while loop with the condiction " event !== =" -> event does not equal =, 
-          // if the equals button in clicked it should evaluate the IP string
+        var nums = eval(inputLine);
+        console.log(inputLine, nums); 
+        return inputLine.innerHTML = nums;
+        // I think inputLine is the correct param, its also the only var this function can access
+        // ln 53 seems to be the issue, the cnsl is displaying the correct result
+        // inputLine will be "IPln" in notes
+        // Tried things: return IPln = nums, IPln.innerHTML = nums
       }
   </script>  
   </body>
