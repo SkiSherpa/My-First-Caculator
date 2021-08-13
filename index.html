@@ -31,6 +31,8 @@
     
     <h3 id="the-display">The Display</h3>
 
+    <h4>The All Clear Button</h4>
+    <button type="button" onclick=allClear()>All Clear</button>
 
   <script>
       var inputLine = '';
@@ -51,16 +53,31 @@
         // IP: a String - math expression
         // OP: a # - the result of the expression
           // !!! eval() is apparently a nefarious function and shouldn't be used often. maybe should change in the future.
+        if (eval(inputLine) === undefined){
+          alert('Not valid Math expression. Check your equation.');
+        }
         var nums = eval(inputLine);
+        // inputLine is the only var this function can access
         console.log(inputLine, nums); 
+        // we need to read what is on the document
         var displayElement = document.getElementById("the-display");
+        // the innerHTML reflects what is in the displayElement var
         displayElement.innerHTML = nums;
-        // I think inputLine is the correct param, its also the only var this function can access
-        // ln 53 seems to be the issue, the cnsl is displaying the correct result
-        // new line to try an push with change - delete later, cause worthless line
-        const deleteLater = '';
         
+        // NEXT STEPS 1: need to account for improper expressions, like: 2+++3, 
+          // this should result in an alert to only put in valid math expressions
+          // Should be before the nums var
+        
+        // !!!!!!!! your Github Token: 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
+        // No idea what this is for, Cheng Help
       }
+
+      function allClear(event){
+        var displayElement = document.getElementById("the-display");
+        displayElement.innerHTML = '';
+        inputLine = '';
+      }
+
   </script>  
   </body>
 </html>
