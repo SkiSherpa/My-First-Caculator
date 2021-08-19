@@ -53,7 +53,8 @@
         // IP: a String - math expression
         // OP: a # - the result of the expression
           // !!! eval() is apparently a nefarious function and shouldn't be used often. maybe should change in the future.
-        if (eval(inputLine) === undefined){
+        console.log(eval(inputLine));
+          if (eval(inputLine) === undefined){
           alert('Not valid Math expression. Check your equation.');
         }
         var nums = eval(inputLine);
