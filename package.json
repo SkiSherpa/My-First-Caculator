@@ -1,0 +1,25 @@
+{
+  "name": "firstcalculator",
+  "version": "1.0.0",
+  "description": "Simple Calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkiSherpa/My-First-Caculator.git"
+  },
+  "keywords": [
+    "Calculator"
+  ],
+  "author": "Erick Watanabe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkiSherpa/My-First-Caculator/issues"
+  },
+  "homepage": "https://github.com/SkiSherpa/My-First-Caculator#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

@@ -1,38 +1,45 @@
 <!--- My First Calculator --->
 <!DOCTYPE html>
-<html> 
+<html lang="en"> 
   <body> 
-    <h1>The Number Buttons</h1>
+    <h1>A Basic Calculator</h1>
+    <h2>The Number Buttons</h2>
     <!--- number buttons --->
-    <button type="button" onclick="display(event)">1</button>
-    <button type="button" onclick="display(event)">2</button>
-    <button type="button" onclick="display(event)">3</button>
-    <button type="button" onclick="display(event)">4</button>
-    <button type="button" onclick="display(event)">5</button>
-    <button type="button" onclick="display(event)">6</button>
-    <button type="button" onclick="display(event)">7</button>
-    <button type="button" onclick="display(event)">8</button>
-    <button type="button" onclick="display(event)">9</button>
-    <button type="button" onclick="display(event)">0</button>
+    <button type="button" onclick="display(event)" title="one">1</button>
+    <button type="button" onclick="display(event)" title="two">2</button>
+    <button type="button" onclick="display(event)" title="three">3</button>
+    <button type="button" onclick="display(event)" title="four">4</button>
+    <button type="button" onclick="display(event)" title="five">5</button>
+    <button type="button" onclick="display(event)" title="six">6</button>
+    <button type="button" onclick="display(event)" title="seven">7</button>
+    <button type="button" onclick="display(event)" title="eight">8</button>
+    <button type="button" onclick="display(event)" title="nine">9</button>
+    <button type="button" onclick="display(event)" title="zero">0</button>
 
     <h2>The Operator Buttons</h2>
     <!--- operator buttons --->
-    <button type="button" onclick="display(event)">+</button>
-    <button type="button" onclick="display(event)">-</button>
-    <button type="button" onclick="display(event)">*</button>
-    <button type="button" onclick="display(event)">/</button>
-    <button type="button" onclick="display(event)">(</button>
-    <button type="button" onclick="display(event)">)</button>
+    <button type="button" onclick="display(event)" title="plus">+</button>
+    <button type="button" onclick="display(event)" title="minus">-</button>
+    <button type="button" onclick="display(event)" title="times">*</button>
+    <button type="button" onclick="display(event)" title="divide">/</button>
+    <button type="button" onclick="display(event)" title="open parenthathese">(</button>
+    <button type="button" onclick="display(event)" title="close parenthathese">)</button>
     <!-- The = button should call on the calulation function, and then display's the result -->
     <!-- Do I need the = button to remain as an "event"?-->
     <!-- Something has happend with the "push", it wont upload to GitHub -->
-    <button type="button" onclick="calculation(inputLine)">=</button>
+    <button type="button" onclick="calculation(inputLine)" title="equals">=</button>
     
-    
-    <h3 id="the-display">The Display</h3>
+    <h2>The Display</h2>
+    <h2 id="the-display">expressions displayed here</h2>
 
-    <h4>The All Clear Button</h4>
+    <h2>The All Clear Button</h2>
     <button type="button" onclick=allClear()>All Clear</button>
+
+    <h3>Intrustions</h3>
+    <p>This is a basic calculator.</p>
+    <p>The mathmatical expressions will be displayed in the space underneath "The Display." </p>
+    <p>The "All Clear" button will clear any expressions from the calculator.</p>
+    <p>The minus button can also act as a negative sign if you want to work with negative numbers.</p>
 
   <script>
       var inputLine = '';
@@ -49,13 +56,15 @@
           displayElement.innerHTML = inputLine// changing the element on the web page
             // innerHTML always reflects whats in the element ("displayElement")
       }
+    
       function calculation(inputLine){
         // IP: a String - math expression
         // OP: a # - the result of the expression
-          // !!! eval() is apparently a nefarious function and shouldn't be used often. maybe should change in the future.
-        console.log(eval(inputLine));
-          if (eval(inputLine) === undefined){
-          alert('Not valid Math expression. Check your equation.');
+        // try{} is to catch an error - really an invalid expression for the program to evaluate.
+        try {
+          eval(inputLine);
+        } catch (invalidInputError) {
+          alert('please put in a valid expression');
         }
         var nums = eval(inputLine);
         // inputLine is the only var this function can access
@@ -68,8 +77,8 @@
         // NEXT STEPS 1: need to account for improper expressions, like: 2+++3, 
           // this should result in an alert to only put in valid math expressions
           // Should be before the nums var
-        
       }
+    
 
       function allClear(event){
         var displayElement = document.getElementById("the-display");
