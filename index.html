@@ -1,8 +1,70 @@
 <!--- My First Calculator --->
 <!DOCTYPE html>
 <html lang="en"> 
+  <head>
+    <title>A Basic Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A basic calculator. Can evaluate simple expressions. Numbers only.">
+  <style> 
+    .grid-container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px;
+    background-color: #135081;
+    padding: 50px; 
+    }
+    .grid-item {
+    background-color: rgba(225, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px; 
+    font-size: 30px;
+    text-align: center;
+    }
+    .span2 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 6;
+        grid-row-end: 7;
+      }
+    .the-display-end {
+      grid-column-start: 1;
+      grid-column-end: 5;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      margin: 0;
+    }
+  </style>
+  </head>
   <body> 
-    <h1>A Basic Calculator</h1>
+    <div class="grid-container">
+      <h2 id="the-display" class="the-display-end grid-item">expressions displayed here</h2>
+
+      <button type="button" onclick=allClear() title="All Clear" class="grid-item">All Clear</button>
+      <button type="button" onclick="display(event)" title="open parenthathese" class="grid-item">(</button>
+      <button type="button" onclick="display(event)" title="close parenthathese" class="grid-item">)</button>
+      <button type="button" onclick="display(event)" title="divide" class="grid-item">/</button>
+
+      <button type="button" onclick="display(event)" title="one" class="grid-item">1</button>
+      <button type="button" onclick="display(event)" title="two" class="grid-item">2</button>
+      <button type="button" onclick="display(event)" title="three" class="grid-item">3</button>
+      <button type="button" onclick="display(event)" title="times" class="grid-item">*</button>
+
+      <button type="button" onclick="display(event)" title="four" class="grid-item">4</button>
+      <button type="button" onclick="display(event)" title="five" class="grid-item">5</button>
+      <button type="button" onclick="display(event)" title="six" class="grid-item">6</button>
+      <button type="button" onclick="display(event)" title="minus" class="grid-item">-</button>
+
+      <button type="button" onclick="display(event)" title="seven" class="grid-item">7</button>
+      <button type="button" onclick="display(event)" title="eight" class="grid-item">8</button>
+      <button type="button" onclick="display(event)" title="nine" class="grid-item">9</button>
+      <button type="button" onclick="display(event)" title="plus" class="grid-item">+</button>
+      <!-- Need to look into zero further-->
+      <button type="button" onclick="display(event)" title="zero" class="grid-item span2">0</button> 
+      
+      <button type="button" onclick="display(event)" title="equals" class="grid-item">.</button>
+      <button type="button" onclick="calculation(inputLine)" title="equals" class="grid-item">=</button>
+    </div> 
+
     <h2>The Number Buttons</h2>
     <!--- number buttons --->
     <button type="button" onclick="display(event)" title="one">1</button>
@@ -15,6 +77,7 @@
     <button type="button" onclick="display(event)" title="eight">8</button>
     <button type="button" onclick="display(event)" title="nine">9</button>
     <button type="button" onclick="display(event)" title="zero">0</button>
+
 
     <h2>The Operator Buttons</h2>
     <!--- operator buttons --->
@@ -30,7 +93,7 @@
     <button type="button" onclick="calculation(inputLine)" title="equals">=</button>
     
     <h2>The Display</h2>
-    <h2 id="the-display">expressions displayed here</h2>
+    <h2 id="the-display" class="the-display">expressions displayed here</h2>
 
     <h2>The All Clear Button</h2>
     <button type="button" onclick=allClear()>All Clear</button>
